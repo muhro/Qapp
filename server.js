@@ -1,15 +1,15 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
-const app = express();
+const server = express();
 //  welcome screen
-app.get('/', (req, res) => {
+server.get('/', (req, res) => {
     res.json({
         message: 'Welcome to the API'
     });
 });
 //main screen
-app.post('/app', verifyToken, (req, res) => {
+server.post('/server', verifyToken, (req, res) => {
     jwt.verify(req.token, 'secretkeyLauri', (err, authData) => {
         if(err) {
             res.sendStatus(403);
@@ -22,7 +22,7 @@ app.post('/app', verifyToken, (req, res) => {
     });
 });
 //login
-app.post('/login', (req, res) => {
+server.post('/login', (req, res) => {
     //dummy user
     const user = {
         id: 1,
@@ -52,4 +52,4 @@ function verifyToken(req, res, next) {
 
 }
 
-app.listen(3000, () => console.log('Server started'));
+server.listen(3000, () => console.log('Server started'));
