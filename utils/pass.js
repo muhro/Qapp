@@ -19,7 +19,7 @@ pass.use(new Strategy(
                 return done(null, false, {message: 'Incorrect email.'});
             }
             console.log('pw', password, user.password);
-            const validate = await bcrypt.compare(password, user.password);
+            const validate =  bcrypt.compare(password, user.password);
             if (!validate) {
                 return done(null, false, {message: 'Incorrect password.'});
             }
