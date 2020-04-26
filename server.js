@@ -18,7 +18,7 @@ server.use('.modules', express.static('node_modules'));
 
 server.use('/graphql', (req, res) => {
     graphQlHttp({schema, graphql: true, context: {req, res}})(req,
-        res);
+      res);
 });
 
 db.on('connected', () => {
