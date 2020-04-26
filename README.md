@@ -19,3 +19,16 @@ db.createUser(
   }
 )
 ```
+
+**23.4** 
+
+Started the Project
+
+**24.4**
+
+Frontend for the login
+and did stuff with login, auth stuff
+
+**26.4**
+
+working on registration

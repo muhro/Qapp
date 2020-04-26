@@ -51,7 +51,6 @@ const loginForm = document.querySelector('.login-form');
 
 const login = async (evt) => {
     evt.preventDefault();
-     console.log(loginForm.elements);
     let values = {};
     for (let i = 0; i < loginForm.elements.length; i++) {
         if (loginForm.elements[i].tagName === 'INPUT')
@@ -86,34 +85,41 @@ REGISTER
 
     const registerForm = document.querySelector('.register-form');
 
-    const register = async (evt) => {
+    registerForm.addEventListener('submit', async (evt) => {
+        console.log('register form painettu');
         evt.preventDefault();
-        console.log(registerForm.elements);
         let values = {};
         for (let i = 0; i < registerForm.elements.length; i++) {
             if (registerForm.elements[i].tagName === 'INPUT')
                 values[registerForm.elements[i].name] = registerForm.elements[i].value;
+
         }
+        console.log(values.username);
         const mutation = {
-            mutation: `{
-  login(username: "${values.username}", password: "${values.password}") {
-    id
-    username
-    token
-  }
-}
-`,
+            query: `mutation {
+                 registerUser(username: "${values.username}", password: "${values.password}"){
+                 id
+                 username
+                 token
+                 }
+                }
+            `,
         };
+        console.log("Mutattuion ohi", mutation);
+
         try {
             const result = await fetchGraphql(mutation);
-            localStorage.setItem('token', result.login.token);
+            console.log('line 109', result);
+
         }
         catch (e) {
             console.log('error', e.message);
         }
-    };
 
-    registerForm.addEventListener('submit', register);
+
+    });
+
+
 
 
 // check user token
