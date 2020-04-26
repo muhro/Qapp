@@ -16,7 +16,7 @@ const login = (req, res) => {
                             reject(err);
                         }
                         // generate a signed son web token with the contents of user object and return it in the response
-                        const token = jwt.sign(user, 'Projekti');
+                        const token = jwt.sign(user, process.env.your_jwt_token);
                         resolve({user, token});
                     });
                 } catch (e) {
