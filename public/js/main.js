@@ -69,6 +69,7 @@ const login = async (evt) => {
     try {
         const result = await fetchGraphql(query);
         localStorage.setItem('token', result.login.token);
+        location.href = 'home.html';
     }
     catch (e) {
         console.log('error', e.message);
@@ -86,7 +87,6 @@ REGISTER
     const registerForm = document.querySelector('.register-form');
 
     registerForm.addEventListener('submit', async (evt) => {
-        console.log('register form painettu');
         evt.preventDefault();
         let values = {};
         for (let i = 0; i < registerForm.elements.length; i++) {
@@ -94,7 +94,6 @@ REGISTER
                 values[registerForm.elements[i].name] = registerForm.elements[i].value;
 
         }
-        console.log(values.username);
         const mutation = {
             query: `mutation {
                  registerUser(username: "${values.username}", password: "${values.password}"){
@@ -105,11 +104,9 @@ REGISTER
                 }
             `,
         };
-        console.log("Mutattuion ohi", mutation);
 
         try {
             const result = await fetchGraphql(mutation);
-            console.log('line 109', result);
 
         }
         catch (e) {

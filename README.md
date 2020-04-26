@@ -32,3 +32,4 @@ and did stuff with login, auth stuff
 **26.4**
 
 working on registration
+Login works and registration works
