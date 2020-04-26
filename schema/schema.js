@@ -76,6 +76,7 @@ const Mutation = new GraphQLObjectType({
             },
             resolve: async (parent, args, {req, res}) => {
                 try {
+                    console.log('register yrittää ')
                     const hash = await bcrypt.hash(args.password, saltRound);
                     const userWithHash = {
                         ...args,
