@@ -48,8 +48,6 @@ LOGIN
 */
 
 const loginForm = document.querySelector('.login-form');
-const registerForm = document.querySelector('.register-form');
-
 
 const login = async (evt) => {
     evt.preventDefault();
@@ -80,6 +78,43 @@ const login = async (evt) => {
 };
 
 loginForm.addEventListener('submit', login);
+
+/*
+REGISTER
+-------------------------------------------------------------
+*/
+
+    const registerForm = document.querySelector('.register-form');
+
+    const register = async (evt) => {
+        evt.preventDefault();
+        console.log(registerForm.elements);
+        let values = {};
+        for (let i = 0; i < registerForm.elements.length; i++) {
+            if (registerForm.elements[i].tagName === 'INPUT')
+                values[registerForm.elements[i].name] = registerForm.elements[i].value;
+        }
+        const mutation = {
+            mutation: `{
+  login(username: "${values.username}", password: "${values.password}") {
+    id
+    username
+    token
+  }
+}
+`,
+        };
+        try {
+            const result = await fetchGraphql(mutation);
+            localStorage.setItem('token', result.login.token);
+        }
+        catch (e) {
+            console.log('error', e.message);
+        }
+    };
+
+    registerForm.addEventListener('submit', register);
+
 
 // check user token
 const checkUser = async () => {
