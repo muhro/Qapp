@@ -9,7 +9,7 @@ window.onload = async () => {
     }
   }
 
-  // general fetch from graphql API
+// general fetch from graphql API
   const apiURL = '/graphql';
   const fetchGraphql = async (query) => {
     const options = {
@@ -32,8 +32,8 @@ window.onload = async () => {
     }
   };
 
-  // indexedDB stuff
-  //-------------------------------------------------------------
+// indexedDB stuff
+//-------------------------------------------------------------
   const indexedDB = window.indexedDB || window.mozIndexedDB ||
       window.webkitIndexedDB || window.msIndexedDB;
   const request = indexedDB.open('stationDB', 1);
@@ -55,25 +55,25 @@ window.onload = async () => {
 
   const login = async (evt) => {
     evt.preventDefault();
-    console.log(loginForm.elements);
     let values = {};
     for (let i = 0; i < loginForm.elements.length; i++) {
       if (loginForm.elements[i].tagName === 'INPUT')
         values[loginForm.elements[i].name] = loginForm.elements[i].value;
     }
     const query = {
-      query:
-          `{
-            login(username: "${values.username}", password: "${values.password}") {
-              id
-              username
-              token
-            }
-          }`,
+      query: `{
+  login(username: "${values.username}", password: "${values.password}") {
+    id
+    username
+    token
+  }
+}
+`,
     };
     try {
       const result = await fetchGraphql(query);
       localStorage.setItem('token', result.login.token);
+      location.href = 'home.html';
     }
     catch (e) {
       console.log('error', e.message);
@@ -83,18 +83,54 @@ window.onload = async () => {
 
   loginForm.addEventListener('submit', login);
 
-  // check user token
+  /*
+  REGISTER
+  -------------------------------------------------------------
+  */
+
+  const registerForm = document.querySelector('.register-form');
+
+  registerForm.addEventListener('submit', async (evt) => {
+    evt.preventDefault();
+    let values = {};
+    for (let i = 0; i < registerForm.elements.length; i++) {
+      if (registerForm.elements[i].tagName === 'INPUT')
+        values[registerForm.elements[i].name] = registerForm.elements[i].value;
+
+    }
+    const mutation = {
+      query: `mutation {
+                 registerUser(username: "${values.username}", password: "${values.password}"){
+                 id
+                 username
+                 token
+                 }
+                }
+            `,
+    };
+
+    try {
+      const result = await fetchGraphql(mutation);
+
+    }
+    catch (e) {
+      console.log('error', e.message);
+    }
+
+  });
+
+// check user token
   const checkUser = async () => {
     const query = {
-      query:
-          ` {
-              user 
-              {
-                id
-                username
-                token
-              }
-            }`,
+      query: ` {
+  user 
+  {
+    id
+    username
+    token
+  }
+}
+`,
     };
     const result = await fetchGraphql(query);
     console.log(result);

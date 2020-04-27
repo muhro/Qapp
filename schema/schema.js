@@ -8,6 +8,10 @@ const {
     GraphQLNonNull,
 } = require('graphql');
 
+const bcrypt = require('bcrypt');
+const saltRound = 12;
+const user = require('../models/user');
+
 //------------------------------------------------------------------------------------------------------
 const authController = require('../controller/authController');
 //------------------------------------------------------------------------------------------------------
@@ -27,6 +31,10 @@ const RootQuery = new GraphQLObjectType({
         user: {
             type: userType,
             description: 'Get user by token, authentication required.',
+            args: {
+                username: {type: new GraphQLNonNull(GraphQLString)},
+                password: {type: new GraphQLNonNull(GraphQLString)},
+            },
             resolve: async (parent, args, {req, res}) => {
                 try {
                     const result = await authController.checkAuth(req, res);
@@ -60,6 +68,7 @@ const RootQuery = new GraphQLObjectType({
                 }
             },
         },
+
     },
 });
 //------------------------------------------------------------------------------------------------------
@@ -76,6 +85,7 @@ const Mutation = new GraphQLObjectType({
             },
             resolve: async (parent, args, {req, res}) => {
                 try {
+                    console.log('register yrittää ');
                     const hash = await bcrypt.hash(args.password, saltRound);
                     const userWithHash = {
                         ...args,

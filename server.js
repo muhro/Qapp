@@ -13,13 +13,26 @@ server.use(cors());
 server.use(express.json()); // for parsing application/json
 server.use(express.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
 
+
+
 server.use(express.static('public'));
 server.use('.modules', express.static('node_modules'));
 
 server.use('/graphql', (req, res) => {
-    graphQlHttp({schema, graphql: true, context: {req, res}})(req,
-      res);
+    graphQlHttp({schema,
+        graphql: true,
+        context: {req, res}})
+        (req, res);
 });
+
+
+server.post('/',passport.authenticate('local', {
+
+  successRedirect: '/home',
+
+}));
+
+
 
 db.on('connected', () => {
     console.log('db connected');
