@@ -8,11 +8,12 @@ const passport = require('./utils/pass');
 const schema = require('./schema/schema');
 const db = require('./database/db');
 const server = express();
+const initRoutes = require("./route/authRoute");
 
 server.use(cors());
 server.use(express.json()); // for parsing application/json
 server.use(express.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
-
+initRoutes(server);
 
 
 server.use(express.static('public'));
