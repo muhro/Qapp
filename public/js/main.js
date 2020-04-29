@@ -1,4 +1,5 @@
-window.onload = async () => {
+
+(async () => {
   'use strict';
   if ('serviceWorker' in navigator) {
     try {
@@ -8,6 +9,11 @@ window.onload = async () => {
       console.log(e.message);
     }
   }
+
+    let registerClose = document.getElementById('modalLoginFormBtn')
+    registerClose.addEventListener('click', ()=>{ $('#modalLoginForm').modal('hide');})
+
+
 
 // general fetch from graphql API
   const apiURL = '/graphql';
@@ -136,6 +142,7 @@ window.onload = async () => {
     console.log(result);
     if (result.user) {
     }
-  };
+  }
+})();
 
-};
+

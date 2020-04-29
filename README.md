@@ -33,3 +33,12 @@ and did stuff with login, auth stuff
 
 working on registration
 Login works and registration works
+
+
+**28.4**
+
+Jelastic works
+
+**29.4**
+
+Register modal closes when user registers
