@@ -3,7 +3,8 @@
 
     const apiURL = '/graphql';
 
-
+    let registerClose = document.getElementById('modalLoginFormBtn')
+    registerClose.addEventListener('click', ()=>{ $('#modalLoginForm').modal('hide');})
 
 
 // general fetch from graphql API
