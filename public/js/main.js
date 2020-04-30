@@ -101,12 +101,22 @@ REGISTER
                  id
                  username
                  token
+                 posts{
+                    id
+                    length
+                    chunckSize
+                    UploadDate
+                    filename
+                    md4
+                    contentType
+                 }
                  }
                 }
             `,
         };
 
         try {
+            console.log(mutation)
             const result = await fetchGraphql(mutation);
 
         }
