@@ -203,6 +203,28 @@ REGISTER
 .modal-dialog{
     padding-top: 3rem;
 }
+
+/*
+HOME
+-----------------------------------------------------------------
+*/
+
+
+
+.wrap-home {
+  width: 390px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 77px 55px 33px 55px;
+  box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
+  height: 80vh;
+}
+
+
+
+
+
 /*
 MEDIA QUERY
 -----------------------------------------------------------------

@@ -16,7 +16,7 @@ pass.use(new Strategy(
             const user = await userModel.findOne({username});
           //  console.log('Local strategy', user, username);
             if (user === null) {
-                return done(null, false, {message: 'Incorrect email.'});
+                return done(null, false, {message: 'Incorrect username.'});
             }
             const validate =  await bcrypt.compare(password, user.password);
             if (!validate) {

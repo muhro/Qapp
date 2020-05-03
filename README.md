@@ -42,4 +42,8 @@ Jelastic works
 **29.4**
 
 Register modal closes when user registers
+
 Spend a lot of time working on getting posts under user query, will continue tomorrow
+
+Register modal closes when user registers
+
