@@ -6,11 +6,15 @@ const {
     GraphQLString,
     GraphQLSchema,
     GraphQLNonNull,
+    GraphQLList,
+    GraphQLInputObjectType,
 } = require('graphql');
 
 const bcrypt = require('bcrypt');
 const saltRound = 12;
 const user = require('../models/user');
+const posts = require('../models/posts');
+
 
 //------------------------------------------------------------------------------------------------------
 const authController = require('../controller/authController');
@@ -21,8 +25,42 @@ const userType = new GraphQLObjectType({
         id: {type: GraphQLID},
         username: {type: GraphQLString},
         token: {type: GraphQLString},
+        posts: {
+            type: new GraphQLList(postsType),
+            resolve(parent, args) {
+                return posts.find({_id: {$in: parent.posts}});
+            },
+        },
     }),
 });
+
+const postsType = new GraphQLObjectType({
+    name: 'posts',
+    fields: () => ({
+        id: {type: GraphQLID},
+        length: {type: GraphQLString},
+        chunckSize: {type: GraphQLString},
+        UploadDate: {type: GraphQLString},
+        filename: {type: GraphQLString},
+        md4: {type: GraphQLString},
+        contentType: {type: GraphQLString},
+    }),
+});
+
+
+const postCreation = new GraphQLInputObjectType({
+    name: 'postCreation',
+    description: 'crates posts',
+    fields: () => ({
+        length: {type: GraphQLString},
+        chunckSize: {type: GraphQLString},
+        UploadDate: {type: GraphQLString},
+        filename: {type: GraphQLString},
+        md4: {type: GraphQLString},
+        contentType: {type: GraphQLString},
+    }),
+});
+
 
 //------------------------------------------------------------------------------------------------------
 const RootQuery = new GraphQLObjectType({
@@ -39,11 +77,32 @@ const RootQuery = new GraphQLObjectType({
                 try {
                     const result = await authController.checkAuth(req, res);
                     result.token = 'you have it already';
-                    return result;
+                    return result ;
                 } catch (err) {
                     throw new Error(err);
                 }
             },
+        },
+        posts: {
+            type: postsType,
+            description: 'List of users posts',
+            args: {
+                id: {type: new GraphQLNonNull(GraphQLID)},
+                length: {type: GraphQLString},
+                chunckSize: {type: GraphQLString},
+                UploadDate: {type: GraphQLString},
+                filename: {type: GraphQLString},
+                md4: {type: GraphQLString},
+                contentType: {type: GraphQLString},
+            },
+            resolve: async (parent,  args)=> {
+                try{
+                    return await posts.findById(args.id)
+                }
+                catch (e) {
+
+                }
+            }
         },
         login: {
             type: userType,
@@ -82,6 +141,10 @@ const Mutation = new GraphQLObjectType({
             args: {
                 username: {type: new GraphQLNonNull(GraphQLString)},
                 password: {type: new GraphQLNonNull(GraphQLString)},
+               /* posts: {
+                    type: new GraphQLNonNull(new GraphQLList(postCreation)),
+                }
+               */
             },
             resolve: async (parent, args, {req, res}) => {
                 try {

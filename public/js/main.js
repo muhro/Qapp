@@ -110,20 +110,35 @@
                  id
                  username
                  token
+                 posts{
+                    id
+                    length
+                    chunckSize
+                    UploadDate
+                    filename
+                    md4
+                    contentType
+                 }
                  }
                 }
             `,
-    };
 
-    try {
-      const result = await fetchGraphql(mutation);
+        };
 
-    }
-    catch (e) {
-      console.log('error', e.message);
-    }
+        try {
+            console.log(mutation)
+            const result = await fetchGraphql(mutation);
 
-  });
+        }
+        catch (e) {
+            console.log('error', e.message);
+        }
+
+
+    });
+
+    
+
 
 // check user token
   const checkUser = async () => {
