@@ -1,0 +1,30 @@
+.username{
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 25%;
+    float: left;
+}
+.imgthumb {
+    display: inline-block;
+    width: 202px;
+    height: 202px;
+    padding: 4px;
+    line-height: 1.42857143;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.imgcircle{
+    border-radius: 50%;
+}
+
+@media (max-width: 800px){
+    .username{
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 25%;
+        margin: auto;
+    }
+}
