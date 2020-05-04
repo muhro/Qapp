@@ -4,7 +4,6 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const graphQlHttp = require('express-graphql');
-const passport = require('./utils/pass');
 const schema = require('./schema/schema');
 const db = require('./database/db');
 const server = express();
@@ -25,15 +24,6 @@ server.use('/graphql', (req, res) => {
         context: {req, res}})
         (req, res);
 });
-
-
-server.post('/',passport.authenticate('local', {
-
-  successRedirect: '/home',
-
-}));
-
-
 
 db.on('connected', () => {
     console.log('db connected');

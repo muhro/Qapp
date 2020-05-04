@@ -3,15 +3,15 @@
   'use strict';
   if ('serviceWorker' in navigator) {
     try {
-      const worker = await navigator.serviceWorker.register('./sw.js');
+      await navigator.serviceWorker.register('./sw.js');
       console.log('Service Worker Registered');
     } catch (e) {
       console.log(e.message);
     }
   }
 
-    let registerClose = document.getElementById('modalLoginFormBtn')
-    registerClose.addEventListener('click', ()=>{ $('#modalLoginForm').modal('hide');})
+  let registerClose = document.getElementById('modalLoginFormBtn');
+  registerClose.addEventListener('click', ()=>{ $('#modalLoginForm').modal('hide');});
 
 
 
@@ -123,21 +123,21 @@
                 }
             `,
 
-        };
+    };
 
-        try {
-            console.log(mutation)
-            const result = await fetchGraphql(mutation);
+    try {
+      console.log(mutation)
+      const result = await fetchGraphql(mutation);
 
-        }
-        catch (e) {
-            console.log('error', e.message);
-        }
+    }
+    catch (e) {
+      console.log('error', e.message);
+    }
 
 
-    });
+  });
 
-    
+
 
 
 // check user token
