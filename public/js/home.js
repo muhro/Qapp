@@ -13,7 +13,9 @@
 
 
 // general fetch from graphql API
-    const apiURL = '/graphql';
+
+    const apiURL = './graphql';
+
     const fetchGraphql = async (query) => {
         const options = {
             method: 'POST',
@@ -27,7 +29,6 @@
         try {
             const response = await fetch(apiURL, options);
             const json = await response.json();
-            console.log(json)
             return json.data;
         }
         catch (e) {
@@ -48,16 +49,18 @@
 
     request.onupgradeneeded = () => {
         let db = request.result;
+
         db.createObjectStore('users', {autoIncrement: true});
     };
+
 
 
 // check user token
     const checkUser = async () => {
         const query = {
             query: ` {
-  user 
-  {
+
+  user{
     id
     username
     token
@@ -66,12 +69,14 @@
 `,
         };
         const result = await fetchGraphql(query);
+
         console.log(result);
         if (!result.user) {
             location.href = 'index.html';
         }
     };
  await checkUser();
+
 })();
 
 
