@@ -4,11 +4,10 @@ const router = express.Router();
 const authController = require("../controller/authController");
 const uploadController = require("../controller/uploadController");
 
-router.post("/login", authController.login);
 
 let routes = app => {
-
   router.post("/login", authController.login);
+
 
   router.post("/upload", uploadController.uploadFile);
 

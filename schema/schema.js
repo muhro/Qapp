@@ -69,10 +69,6 @@ const RootQuery = new GraphQLObjectType({
         user: {
             type: userType,
             description: 'Get user by token, authentication required.',
-            args: {
-                username: {type: new GraphQLNonNull(GraphQLString)},
-                password: {type: new GraphQLNonNull(GraphQLString)},
-            },
             resolve: async (parent, args, {req, res}) => {
                 try {
                     const result = await authController.checkAuth(req, res);
