@@ -21,6 +21,7 @@ const login = (req, res) => {
                     });
                 } catch (e) {
                     reject(e.message);
+
                 }
             })(req, res);
     });

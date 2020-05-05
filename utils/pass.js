@@ -20,6 +20,7 @@ pass.use(new Strategy(
             }
             const validate =  await bcrypt.compare(password, user.password);
             if (!validate) {
+
                 return done(null, false, {message: 'Incorrect password.'});
             }
 

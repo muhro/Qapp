@@ -10,8 +10,6 @@
     }
   }
 
-  let registerClose = document.getElementById('modalLoginFormBtn');
-  registerClose.addEventListener('click', ()=>{ $('#modalLoginForm').modal('hide');});
 
 
 
@@ -42,7 +40,7 @@
 //-------------------------------------------------------------
   const indexedDB = window.indexedDB || window.mozIndexedDB ||
       window.webkitIndexedDB || window.msIndexedDB;
-  const request = indexedDB.open('stationDB', 1);
+  const request = indexedDB.open('qapp', 1);
   let db;
   request.onsuccess = (event) => {
     db = request.result;
@@ -57,9 +55,20 @@
   -------------------------------------------------------------
   */
 
+  function loginError() {
+    document.getElementById('Error')
+        .innerHTML = '<p class="error" id="error">ERROR</p>'
+    setTimeout(()=>{
+        document.getElementById('error')
+            .remove()
+        }
+  , 1500);
+
+  }
+
   const loginForm = document.querySelector('.login-form');
 
-  const login = async (evt) => {
+  loginForm.addEventListener('submit', async (evt) => {
     evt.preventDefault();
     let values = {};
     for (let i = 0; i < loginForm.elements.length; i++) {
@@ -82,12 +91,13 @@
       location.href = 'home.html';
     }
     catch (e) {
-      console.log('error', e.message);
+      console.log("err")
+     await loginError()
+
     }
 
-  };
+  });
 
-  loginForm.addEventListener('submit', login);
 
   /*
   REGISTER
@@ -126,16 +136,19 @@
     };
 
     try {
-      console.log(mutation)
-      const result = await fetchGraphql(mutation);
-
-    }
-    catch (e) {
-      console.log('error', e.message);
-    }
+            console.log(mutation)
+            const result = await fetchGraphql(mutation);
+          let registerClose = document.getElementById('modalRegisterFormBtn');
+          registerClose.addEventListener('click', ()=>{ $('#modalRegisterForm').modal('hide');})
 
 
-  });
+        }
+        catch (e) {
+            console.log('error', e.message);
+        }
+
+
+    });
 
 
 
@@ -156,8 +169,10 @@
     const result = await fetchGraphql(query);
     console.log(result);
     if (result.user) {
+      console.log('if check')
     }
   }
+
 })();
 
 
