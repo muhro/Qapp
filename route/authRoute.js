@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const authController = require("../controller/authController");
 const uploadController = require("../controller/uploadController");
-//const passport = require('../utils/pass');
+const passport = require('../utils/pass');
 
 let routes = app => {
 
