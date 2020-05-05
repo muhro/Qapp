@@ -27,7 +27,6 @@
     try {
       const response = await fetch(apiURL, options);
       const json = await response.json();
-      console.log(json);
       return json.data;
     }
     catch (e) {
@@ -59,7 +58,7 @@
     document.getElementById('Error')
         .innerHTML = '<p class="error" id="error">ERROR</p>'
     setTimeout(()=>{
-        document.getElementById('Error')
+        document.getElementById('error')
             .remove()
         }
   , 1500);
@@ -91,6 +90,7 @@
       location.href = 'home.html';
     }
     catch (e) {
+      console.log("err")
      await loginError()
 
     }
