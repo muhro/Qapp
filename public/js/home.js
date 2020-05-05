@@ -13,7 +13,9 @@
 
 
 // general fetch from graphql API
+
     const apiURL = './graphql';
+
     const fetchGraphql = async (query) => {
         const options = {
             method: 'POST',
@@ -27,7 +29,6 @@
         try {
             const response = await fetch(apiURL, options);
             const json = await response.json();
-
             return json.data;
         }
         catch (e) {
@@ -48,12 +49,9 @@
 
     request.onupgradeneeded = () => {
         let db = request.result;
-        db.createObjectStore('stationList', {autoIncrement: true});
+
+        db.createObjectStore('users', {autoIncrement: true});
     };
-
-
-
-
 
 
 
@@ -61,6 +59,7 @@
     const checkUser = async () => {
         const query = {
             query: ` {
+
   user{
     id
     username
@@ -70,12 +69,14 @@
 `,
         };
         const result = await fetchGraphql(query);
-        console.log( 'chechAuth', result);
-        if (result.user) {
-            location.href = 'home.html';
+
+        console.log(result);
+        if (!result.user) {
+            location.href = 'index.html';
         }
     };
-     checkUser()
+ await checkUser();
+
 })();
 
 
