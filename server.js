@@ -5,10 +5,10 @@ const express = require('express');
 const cors = require('cors');
 const graphQlHttp = require('express-graphql');
 const schema = require('./schema/schema');
+const passport = require('./utils/pass');
 const db = require('./database/db');
 const authController = require("./controller/authController");
 const uploadController = require("./controller/uploadController");
-const passport = require('./utils/pass');
 const server = express();
 
 server.use(cors());
