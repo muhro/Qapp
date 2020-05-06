@@ -28,6 +28,7 @@ server.use('/graphql', (req, res) => {
 
 server.post("/", authController.login);
 server.post("/upload", uploadController.uploadFile);
+server.get("/logout",authController.logout);
 
 db.on('connected', () => {
     console.log('db connected');

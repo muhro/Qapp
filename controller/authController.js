@@ -27,6 +27,12 @@ const login = (req, res) => {
     });
 };
 
+const logout = (req, res, ) => {
+    req.logout();
+    res.redirect('/');
+
+};
+
 const checkAuth = (req, res) => {
     return new Promise((resolve, reject) => {
         passport.authenticate('jwt', (err, user) => {
@@ -41,4 +47,5 @@ const checkAuth = (req, res) => {
 module.exports = {
     login,
     checkAuth,
+    logout,
 };
