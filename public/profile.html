@@ -8,12 +8,13 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="import" src="bower_components/polymer-apollo-client/graphql-client.html">
 </head>
 <body>
 <div class="container bootstrap snippet">
     <div class="row">
         <div class="username" style="text-align: center">
-            <h1>User name</h1>
+            <h1 id="username"></h1>
         </div>
     </div>
     <div class="row">
@@ -137,6 +138,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="js/home.js"></script>
+<script src="js/profile.js"></script>
 <script>
   $(document).ready(function() {
     let imagesPreview = function(input) {
@@ -156,5 +158,7 @@
       imagesPreview(this, 'div.preview-images');
     });
   });
+
+
 </script>
 </html>
