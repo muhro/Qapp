@@ -236,7 +236,9 @@ HOME
 }
 
 
-
+.bmd-drawer-f-l>.bmd-layout-drawer {
+  width: 168px !important;
+}
 
 
 /*

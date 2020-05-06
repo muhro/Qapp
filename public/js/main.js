@@ -47,7 +47,7 @@
 
   request.onupgradeneeded = () => {
     let db = request.result;
-    db.createObjectStore('stationList', {autoIncrement: true});
+    db.createObjectStore('users', {autoIncrement: true});
   };
   /*
   LOGIN

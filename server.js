@@ -19,6 +19,8 @@ initRoutes(server);
 server.use(express.static('public'));
 server.use('.modules', express.static('node_modules'));
 
+
+
 server.use('/graphql', (req, res) => {
     graphQlHttp({schema,
         graphql: true,
