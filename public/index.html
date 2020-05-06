@@ -12,70 +12,71 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-	<div>
-		<div class="container-login">
-			<div class="wrap-login">
-				<form  id="login" class="login-form">
-					<span class="login-form-title"> Q App </span>
-					<div id="Error">
+<div>
+	<div class="container-login">
+		<div class="wrap-login">
+			<form  id="login" class="login-form">
+				<span class="login-form-title"> Q App </span>
+				<div id="Error">
 
-					</div>
-					<div>
-						<input class="input" type="text" name="username" placeholder="Username">
-						<span class=""></span>
-					</div>
-
-					<div>
-						<input class="input" type="password" name="password" placeholder="Password">
-						<span class=""></span>
-					</div>
-					<div class="container-login-form-btn">
-						<div class="wrap-login-form-btn">
-							<div class="login-form-bgbtn"></div>
-							<button class="login-form-btn">
-								Login
-							</button>
-						</div>
-					</div>
-
-				</form>
-				<div class="text-center">
-					<a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">SING UP</a>
 				</div>
+
+				<div>
+					<input class="input" type="text" name="username" placeholder="Username">
+					<span class=""></span>
+				</div>
+
+				<div>
+					<input class="input" type="password" name="password" placeholder="Password">
+					<span class=""></span>
+				</div>
+				<div class="container-login-form-btn">
+					<div class="wrap-login-form-btn">
+						<div class="login-form-bgbtn"></div>
+						<button class="login-form-btn">
+							Login
+						</button>
+					</div>
+				</div>
+
+			</form>
+			<div class="text-center">
+				<a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">SING UP</a>
 			</div>
 		</div>
 	</div>
+</div>
 
-	<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-		 aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
+<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	 aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
 
-				<form  class="register-form">
-					<span class="register-form-title"> SING UP</span>
+			<form  class="register-form">
+				<span class="register-form-title"> SING UP</span>
 
-					<div class="register-input">
-						<input class="input" type="text" name="username" placeholder="Username">
-						<span class=""></span>
+				<div class="register-input">
+					<input class="input" type="text" name="username" placeholder="Username">
+					<span class=""></span>
+				</div>
+
+				<div class="register-input">
+					<input class="input" type="password" name="password" placeholder="Password">
+					<span class=""></span>
+				</div>
+				<div class="container-register-form-btn">
+					<div class="wrap-register-form-btn">
+						<div class="register-form-bgbtn"></div>
+						<button class="register-form-btn" id="modalLoginFormBtn">
+							REGISTER
+						</button>
 					</div>
+				</div>
 
-					<div class="register-input">
-						<input class="input" type="password" name="password" placeholder="Password">
-						<span class=""></span>
-					</div>
-					<div class="container-register-form-btn">
-						<div class="wrap-register-form-btn">
-							<div class="register-form-bgbtn"></div>
-							<button class="register-form-btn" id="modalLoginFormBtn">
-								REGISTER
-							</button>
-						</div>
-					</div>
-
-				</form>
-			</div>
+			</form>
 		</div>
 	</div>
+</div>
 
 
 
