@@ -6,13 +6,14 @@ const cors = require('cors');
 const graphQlHttp = require('express-graphql');
 const schema = require('./schema/schema');
 const db = require('./database/db');
+const authController = require("./controller/authController");
+const uploadController = require("./controller/uploadController");
+const passport = require('./utils/pass');
 const server = express();
-const initRoutes = require("./route/authRoute");
 
 server.use(cors());
 server.use(express.json()); // for parsing application/json
 server.use(express.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
-initRoutes(server);
 
 
 server.use(express.static('public'));
@@ -24,6 +25,9 @@ server.use('/graphql', (req, res) => {
         context: {req, res}})
         (req, res);
 });
+
+server.post("/", authController.login);
+server.post("/upload", uploadController.uploadFile);
 
 db.on('connected', () => {
     console.log('db connected');
