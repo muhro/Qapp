@@ -254,7 +254,9 @@ HOME
     box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
     height: 95vh;
 }
-
+.text-input{
+    height: 8rem !important;
+}
 .list-group{
     margin-right: 10px;
 }
@@ -271,13 +273,16 @@ HOME
     color: #1C8AD7 !important;
 }
 
-.navbar-brand{
+.navbar-brand {
     padding: 0 !important;
     margin: auto !important;
     text-align: center;
     color: #1C8AD7 !important;
     font-weight: bold;
+}
 
+.bmd-drawer-f-l>.bmd-layout-drawer {
+  width: 168px !important;
 }
 
 .userHeader{
@@ -312,6 +317,7 @@ HOME
     position: absolute;
     width: 50%;
     margin-left: 25%;
+>>>>>>> 566f46b284fef664f2892dbedd97c75e1661618f
 }
 
 .logout {

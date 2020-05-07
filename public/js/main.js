@@ -47,7 +47,7 @@
 
   request.onupgradeneeded = () => {
     let db = request.result;
-    db.createObjectStore('stationList', {autoIncrement: true});
+    db.createObjectStore('users', {autoIncrement: true});
   };
   /*
   LOGIN
@@ -56,13 +56,12 @@
 
   function loginError() {
     document.getElementById('Error')
-        .innerHTML = '<p class="error" id="error">ERROR</p>'
+        .innerHTML = '<p class="error" id="error">LOGIN FAILED</p>'
     setTimeout(()=>{
-        document.getElementById('error')
-            .remove()
+       // document.getElementById('error')
+         //   .remove()
         }
   , 1500);
-
   }
 
   const loginForm = document.querySelector('.login-form');
@@ -151,10 +150,10 @@
     let registerClose = document.getElementById('modalRegisterFormBtn');
     registerClose.addEventListener('click', ()=>{ $('#modalRegisterForm').modal('hide');})
 
-
-
-
-// check user token
+ /*
+ CHECK USER TOKEN
+ -------------------------------------------------------------
+ */
   const checkUser = async () => {
     const query = {
       query: ` {
