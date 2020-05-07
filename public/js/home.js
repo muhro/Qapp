@@ -65,7 +65,7 @@
         evt.preventDefault();
         let values = {};
         for (let i = 0; i < postForm.elements.length; i++) {
-            if (postForm.elements[i].tagName === 'INPUT')
+            if (postForm.elements[i].tagName === 'TEXTAREA')
                 values[postForm.elements[i].name] = postForm.elements[i].value;
         }
         const mutation = {

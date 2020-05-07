@@ -75,14 +75,16 @@
                 <span class="register-form-title"> Create a post</span>
 
                 <div class="register-input ">
-                    <h4>Post title:</h4>
-                    <input class="input" type="text" name="header" placeholder="header">
+                    <h5>Post title:</h5>
+                    <textarea id="headerInput" class="inputHeader" type="text" name="header" placeholder="header" maxlength="100"></textarea>
                     <span class=""></span>
+                    <a id="countHeader"></a>
                 </div>
-                <h4>Post title:</h4>
                 <div class="register-input ">
-                    <input class="input text-input" type="text" name="text" placeholder="text">
+                    <h5>Post content:</h5>
+                    <textarea id="flavorInput" class="inputFlavor" type="text" name="text" placeholder="text" maxlength="500"></textarea>
                     <span class=""></span>
+                    <a id="countFlavor"></a>
                 </div>
                 <div class="container-register-form-btn">
                     <div class="wrap-register-form-btn">
@@ -111,10 +113,38 @@
         integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
         crossorigin="anonymous"></script>
 <script>
+  document.getElementById('modalPostFormBtn').addEventListener('click', function() {
+    location.reload();
+  });
   document.getElementById('logoutButt').addEventListener('click', function() {
     console.log('local storage cleared');
     localStorage.clear();
   });
+  $(document).ready(function() {
+    let maxcharHeader = 100;
+    let maxcharFlavor = 500;
+    let i = document.getElementById("headerInput");
+    let j = document.getElementById("flavorInput");
+    let c = document.getElementById("countHeader");
+    let d = document.getElementById("countFlavor");
+    c.innerHTML = maxcharHeader;
+    d.innerHTML = maxcharFlavor;
+
+    $(i).keyup(function() {
+      let text_length = $(i).val().length;
+      let text_remaining = maxcharHeader - text_length;
+
+      $(c).html(text_remaining);
+    });
+    $(j).keyup(function() {
+      let text_length = $(j).val().length;
+      let text_remaining = maxcharFlavor - text_length;
+
+      $(d).html(text_remaining);
+    });
+  });
+
+
   $(document).ready(function() {
   $('body').bootstrapMaterialDesign();
 });
