@@ -39,7 +39,7 @@
                         <a class="list-group-item" href="#userOverView"><span class="material-icons">list</span>Overview</a>
                         <a class="list-group-item" href="./profile.html"><span class="material-icons">settings</span>Settings</a>
                     </ul>
-                    <button class="logout"><a href="/logout" class="logoutText">LOGOUT</a></button>
+                    <button class="logout" id="logoutButt"><a href="/logout" class="logoutText">LOGOUT</a></button>
                 </div>
                 <main class="bmd-layout-content">
                     <div class="scrollDiv">
@@ -74,20 +74,18 @@
                                                     <button type="submit" class="btn btn-primary">Submit</button>
                                                 </form>
                                             </div>
-                                            <br>
-
                                         </div>
                                         <div class="col-sm-9">
                                             <div class="tab-content">
                                                 <div class="tab-pane active" id="home">
                                                     <form class="form" action="##" method="post">
-                                                            <div class="col-xs-6">
-                                                                <label for="email"><h5>Email</h5></label>
-                                                                <input type="email" class="form-control" name="email"
-                                                                       id="email"
-                                                                       placeholder="you@email.com"
-                                                                       title="enter your email.">
-                                                            </div>
+                                                        <div class="col-xs-6">
+                                                            <label for="email"><h5>Email</h5></label>
+                                                            <input type="email" class="form-control" name="email"
+                                                                   id="email"
+                                                                   placeholder="you@email.com"
+                                                                   title="enter your email.">
+                                                        </div>
                                                         <div class="form-group">
 
                                                             <div class="col-xs-6">
@@ -112,7 +110,6 @@
                                                         </div>
                                                         <div class="form-group">
                                                             <div class="col-xs-12">
-                                                                <br>
                                                                 <button class="btn btn-lg btn-success" type="submit"><i
                                                                         class="glyphicon glyphicon-ok-sign"></i> Save
                                                                 </button>
@@ -158,6 +155,10 @@
 });
 </script>
 <script>
+  document.getElementById('logoutButt').addEventListener('click', function() {
+    console.log('local storage cleared');
+    localStorage.clear();
+  });
   $(document).ready(function() {
     let imagesPreview = function(input) {
       if (input.files) {

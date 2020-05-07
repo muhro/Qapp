@@ -1,8 +1,5 @@
 .username{
-    padding-left: 15px;
-    padding-right: 15px;
-    width: 25%;
-    float: left;
+    margin: auto;
 }
 .imgthumb {
     display: inline-block;
@@ -38,7 +35,6 @@
     width: 30vw;
     font-size: 1rem !important;
 }
-.tab-content{margin-left: 5rem;}
 
 .btn-reset{
     margin-right: 5vw;
@@ -47,13 +43,4 @@
     color: white !important;
     width: 30vw;
     font-size: 1rem !important;
-}
-
-@media (max-width: 800px){
-    .username{
-        padding-left: 15px;
-        padding-right: 15px;
-        width: 25%;
-        margin: auto;
-    }
 }

@@ -22,13 +22,16 @@
 
                             <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
                                 <span class="sr-only">Toggle drawer</span>
-                                <i class="material-icons">menu</i>
+                                <i class="material-icons matButt">menu</i>
                             </button>
 
                         </ul>
                         <h4 class="headerH">Frontpage</h4>
 
-                        <button data-toggle="modal" data-target="#modalPostForm">Create post</button>
+                        <button class="navbar-toggler" data-toggle="modal" data-target="#modalPostForm">
+                            <span class="material-icons">post_add</span>
+                        </button>
+
                     </div>
                 </header>
 
@@ -44,7 +47,7 @@
                         <a class="list-group-item" href="#userOverView"><span class="material-icons">list</span>Overview</a>
                         <a class="list-group-item" href="./profile.html"><span class="material-icons">settings</span>Settings</a>
                     </ul>
-                    <button class="logout"><a href="/logout" class="logoutText">LOGOUT</a></button>
+                    <button class="logout" id="logoutButt"><a href="/logout" class="logoutText">LOGOUT</a></button>
                 </div>
 
                 <main class="bmd-layout-content">
@@ -72,10 +75,11 @@
                 <span class="register-form-title"> Create a post</span>
 
                 <div class="register-input ">
+                    <h4>Post title:</h4>
                     <input class="input" type="text" name="header" placeholder="header">
                     <span class=""></span>
                 </div>
-
+                <h4>Post title:</h4>
                 <div class="register-input ">
                     <input class="input text-input" type="text" name="text" placeholder="text">
                     <span class=""></span>
@@ -106,7 +110,12 @@
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
         integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
         crossorigin="anonymous"></script>
-<script>$(document).ready(function() {
+<script>
+  document.getElementById('logoutButt').addEventListener('click', function() {
+    console.log('local storage cleared');
+    localStorage.clear();
+  });
+  $(document).ready(function() {
   $('body').bootstrapMaterialDesign();
 });
 </script>

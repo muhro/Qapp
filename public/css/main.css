@@ -150,7 +150,6 @@ REGISTER
     display: block;
     padding-bottom: 3rem;
     font-size: 30px;
-    color: #333333;
     line-height: 1.2;
     text-align: center;
 }
@@ -242,9 +241,7 @@ ERROR FORM
 HOME
 -----------------------------------------------------------------
 */
-.navbar {
-    margin-bottom: 1rem;
-}
+
 .wrap-home {
     width: 95vw;
     background: #fff;
@@ -254,15 +251,9 @@ HOME
     box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.1);
     height: 95vh;
 }
-.text-input{
-    height: 8rem !important;
-}
-.list-group{
-    margin-right: 10px;
-}
 
-.material-icons{
-    margin-right: 10px !important;
+.list-group-item :first-child{
+    margin-right: 10px;
 }
 
 .list-group-item{
@@ -273,16 +264,13 @@ HOME
     color: #1C8AD7 !important;
 }
 
-.navbar-brand {
+.navbar-brand{
     padding: 0 !important;
     margin: auto !important;
     text-align: center;
     color: #1C8AD7 !important;
     font-weight: bold;
-}
 
-.bmd-drawer-f-l>.bmd-layout-drawer {
-  width: 168px !important;
 }
 
 .userHeader{
@@ -317,7 +305,6 @@ HOME
     position: absolute;
     width: 50%;
     margin-left: 25%;
->>>>>>> 566f46b284fef664f2892dbedd97c75e1661618f
 }
 
 .logout {
@@ -336,7 +323,7 @@ HOME
     border: 0;
     border-radius: 0;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-    padding: 10px 0;
+    padding: 10px;
 }
 
 .paddingDiv{
@@ -355,11 +342,11 @@ HOME
     margin: 0 auto;
 }
 
-ul.horizontal-list {
+ul#horizontal-list {
     list-style: none;
     padding-top: 20px;
 }
-ul.horizontal-list li {
+ul#horizontal-list li {
     display: inline;
 }
 
@@ -368,7 +355,11 @@ ul.horizontal-list li {
 }
 
 .comment{
-float: right;
+    float: right;
+}
+
+.matButt{
+    margin: 0 !important;
 }
 
 /*

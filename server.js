@@ -30,8 +30,8 @@ server.use('/graphql', (req, res) => {
         (req, res);
 });
 
-server.post("/", authController.login, authController.checkAuth);
-server.get("/logout",authController.logout);
+server.post("/", authController.login);
+server.get("/logout", authController.logout);
 
 db.on('connected', () => {
     console.log('db connected');
