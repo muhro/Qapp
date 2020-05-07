@@ -224,10 +224,17 @@ ERROR FORM
 
 
 .error {
-    position: absolute;
-    background-color: red;
-    top: 40%;
-    left: 45%;
+  position: absolute;
+  background-color: red;
+  top: 40%;
+  left: 40%;
+  color: white;
+  height: 3rem;
+  padding: 0.5rem;
+  width: 8rem;
+  text-align: center;
+  margin-top: 0px;
+  border-radius: 25px;
 }
 
 
@@ -235,7 +242,9 @@ ERROR FORM
 HOME
 -----------------------------------------------------------------
 */
-
+.navbar {
+    margin-bottom: 1rem;
+}
 .wrap-home {
     width: 95vw;
     background: #fff;
@@ -340,11 +349,11 @@ HOME
     margin: 0 auto;
 }
 
-ul#horizontal-list {
+ul.horizontal-list {
     list-style: none;
     padding-top: 20px;
 }
-ul#horizontal-list li {
+ul.horizontal-list li {
     display: inline;
 }
 

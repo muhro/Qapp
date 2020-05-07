@@ -12,7 +12,6 @@
 
 
 
-
 // general fetch from graphql API
   const apiURL = '/graphql';
   const fetchGraphql = async (query) => {
@@ -136,11 +135,8 @@
     };
 
     try {
-            console.log(mutation)
-            const result = await fetchGraphql(mutation);
-          let registerClose = document.getElementById('modalRegisterFormBtn');
-          registerClose.addEventListener('click', ()=>{ $('#modalRegisterForm').modal('hide');})
-
+        console.log(mutation)
+        const result = await fetchGraphql(mutation);
 
         }
         catch (e) {
@@ -148,7 +144,12 @@
         }
 
 
-    });
+
+
+  });
+
+    let registerClose = document.getElementById('modalRegisterFormBtn');
+    registerClose.addEventListener('click', ()=>{ $('#modalRegisterForm').modal('hide');})
 
 
 
