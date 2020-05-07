@@ -8,7 +8,16 @@ const dbConnection = mongoose.createConnection(path);
 
 const gfs = new Grid(dbConnection.db);
 
+/*
+gfs.collection("photos.chunks").find(
+    {_id: ObjectId("5eb1d8fe3ac90d25b8617525")}
+)
+*/
+
 // then once you get the id of the file you want:
+const id = ObjectId("5eb1d8fe3ac90d25b8617525");
+console.log(id);
+
 gfs.findOne({
   _id: id
 }, (err, file) => {

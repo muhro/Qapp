@@ -4,10 +4,11 @@
     <title>Q App</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet"
           href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
           integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
 <div>
@@ -16,34 +17,124 @@
 
             <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
                 <header class="bmd-layout-header">
-                    <div class="navbar navbar-light bg-faded">
-                        <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
-                            <span class="sr-only">Toggle drawer</span>
-                            <i class="material-icons">menu</i>
-                        </button>
+                    <div class="navbar navbar-light bg-faded menuButt">
                         <ul class="nav navbar-nav">
-                            <button><a href="/logout">LOGOUT</a></button>
+                            <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
+                                <span class="sr-only">Toggle drawer</span>
+                                <i class="material-icons">menu</i>
+                            </button>
                         </ul>
+                        <h4 class="headerH">Frontpage</h4>
                     </div>
                 </header>
 
                 <div id="dw-s2" class="bmd-layout-drawer bg-faded">
-                    <header>
+                    <header class="userHeader">
+                        <img id="profileimage" src="./images/avatar-temp.png" class="imgthumbnail" alt="avatar">
                         <a class="navbar-brand" id="username" style="text-decoration: none; color: #666666">Profile</a>
                     </header>
                     <ul class="list-group">
-                        <a class="list-group-item">Frontpage</a>
-                        <a class="list-group-item">Overview</a>
-                        <a class="list-group-item" href="./profile.html">Settings</a>
+                        <a class="list-group-item" href="./home.html"><span class="material-icons">home</span>Frontpage</a>
+                        <a class="list-group-item" href="#userOverView"><span class="material-icons">list</span>Overview</a>
+                        <a class="list-group-item" href="./profile.html"><span class="material-icons">settings</span>Settings</a>
                     </ul>
+                    <button class="logout"><a href="/logout" class="logoutText">LOGOUT</a></button>
                 </div>
 
                 <main class="bmd-layout-content">
-
-                    <div class="text-center">
-                        <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal"
-                           data-target="#modalLoginForm">HOMEPAGE</a>
-
+                    <div class="scrollDiv">
+                        <ul id="ulposts">
+                            <li class="postLi">
+                                <h4 class="postHeader">Esimerkki postaus</h4>
+                                <div class="paddingDiv">
+                                <a class="postFlavor">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                    qui officia deserunt mollit anim id est laborum.</a>
+                                    <div class="table">
+                                        <ul id="horizontal-list">
+                                            <li><a href="#updoot"><span class="material-icons upvote">keyboard_arrow_up</span></a></li>
+                                            <li><a href="#downdoot"><span class="material-icons upvote">keyboard_arrow_down</span></a></li>
+                                            <li><a href="#comment" class="comment">Comment</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="postLi">
+                                <h4 class="postHeader">Esimerkki postaus hieman pidemmällä otsikolla</h4>
+                                <div class="paddingDiv">
+                                    <a class="postFlavor">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                        qui officia deserunt mollit anim id est laborum.</a>
+                                    <div class="table">
+                                        <ul id="horizontal-list">
+                                            <li><a href="#updoot"><span class="material-icons upvote">keyboard_arrow_up</span></a></li>
+                                            <li><a href="#downdoot"><span class="material-icons upvote">keyboard_arrow_down</span></a></li>
+                                            <li><a href="#comment" class="comment">Comment</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="postLi">
+                                <h4 class="postHeader">Esimerkki postaus</h4>
+                                <div class="paddingDiv">
+                                    <a class="postFlavor">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                        qui officia deserunt mollit anim id est laborum.</a>
+                                    <div class="table">
+                                        <ul id="horizontal-list">
+                                            <li><a href="#updoot"><span class="material-icons upvote">keyboard_arrow_up</span></a></li>
+                                            <li><a href="#downdoot"><span class="material-icons upvote">keyboard_arrow_down</span></a></li>
+                                            <li><a href="#comment" class="comment">Comment</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="postLi">
+                                <h4 class="postHeader">Esimerkki postaus</h4>
+                                <div class="paddingDiv">
+                                    <a class="postFlavor">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                        qui officia deserunt mollit anim id est laborum.</a>
+                                    <div class="table">
+                                        <ul id="horizontal-list">
+                                            <li><a href="#updoot"><span class="material-icons upvote">keyboard_arrow_up</span></a></li>
+                                            <li><a href="#downdoot"><span class="material-icons upvote">keyboard_arrow_down</span></a></li>
+                                            <li><a href="#comment" class="comment">Comment</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="postLi">
+                                <h4 class="postHeader">Esimerkki postaus</h4>
+                                <div class="paddingDiv">
+                                    <a class="postFlavor">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                        qui officia deserunt mollit anim id est laborum.</a>
+                                    <div class="table">
+                                        <ul id="horizontal-list">
+                                            <li><a href="#updoot"><span class="material-icons upvote">keyboard_arrow_up</span></a></li>
+                                            <li><a href="#downdoot"><span class="material-icons upvote">keyboard_arrow_down</span></a></li>
+                                            <li><a href="#comment" class="comment">Comment</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </main>
             </div>
@@ -66,8 +157,8 @@
 <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
         integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
         crossorigin="anonymous"></script>
-<script>$(document).ready(function () {
-    $('body').bootstrapMaterialDesign();
+<script>$(document).ready(function() {
+  $('body').bootstrapMaterialDesign();
 });
 </script>
 </html>

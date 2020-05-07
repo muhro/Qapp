@@ -2,5 +2,6 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="PROJECT" libraries="{bootstrap, bootstrap-material-design, bootstrap.bundle, jquery-3.2.1.slim, jquery-3.3.1.slim, jquery-3.4.1, popper}" />
+    <includedPredefinedLibrary name="Node.js Core" />
   </component>
 </project>

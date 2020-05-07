@@ -20,6 +20,34 @@
     border-radius: 50%;
 }
 
+.bmd-form-group{
+    padding-top: 0 !important;
+}
+
+.btn-primary{
+    background-color: #009688 !important;
+    color: white !important;
+    font-size: 1rem !important;
+}
+
+.btn-success{
+    margin-left: 5vw;
+    float: left;
+    background-color: #1C8AD7 !important;
+    color: white !important;
+    width: 30vw;
+    font-size: 1rem !important;
+}
+
+.btn-reset{
+    margin-right: 5vw;
+    float: right;
+    background-color: #FE26D3;
+    color: white !important;
+    width: 30vw;
+    font-size: 1rem !important;
+}
+
 @media (max-width: 800px){
     .username{
         padding-left: 15px;
