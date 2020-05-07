@@ -34,7 +34,6 @@ const logout = (req, res, ) => {
 };
 
 
-
 const checkAuth = (req, res) => {
     return new Promise((resolve, reject) => {
         passport.authenticate('jwt', (err, user) => {
@@ -51,3 +50,4 @@ module.exports = {
     checkAuth,
     logout,
 };
+

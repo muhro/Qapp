@@ -14,7 +14,7 @@ const bcrypt = require('bcrypt');
 const saltRound = 12;
 const user = require('../models/user');
 const posts = require('../models/posts');
-
+const _ = require('lodash')
 
 //------------------------------------------------------------------------------------------------------
 const authController = require('../controller/authController');

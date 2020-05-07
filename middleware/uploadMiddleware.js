@@ -14,7 +14,7 @@ let storage = new GridFsStorage({
     }
 
     return {
-      bucketName: "photos",
+      bucketName: "fs",
       filename: `${Date.now()}-qapp-${file.originalname}`
     };
   }

@@ -70,9 +70,21 @@
         };
         const result = await fetchGraphql(query);
 
-        console.log(result);
+
+
+
+
         if (!result.user) {
             location.href = 'index.html';
+
+        } else {
+            console.log(result);
+            let username = result.user.username;
+            const usernameSite = document.querySelector('#username');
+            const usernameSiteMenu = document.querySelector('#usernameMenu');
+
+            usernameSite.innerHTML = username
+            usernameSiteMenu.innerHTML = username
         }
     };
  await checkUser();

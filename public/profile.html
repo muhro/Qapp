@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+          integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/profile.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="import" src="bower_components/polymer-apollo-client/graphql-client.html">
+</head>
+<body>
+<div>
+    <div class="container-login">
+        <div class="wrap-home">
+            <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+                <header class="bmd-layout-header">
+                    <div class="navbar navbar-light bg-faded menuButt">
+                        <ul class="nav navbar-nav">
+                            <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
+                                <span class="sr-only">Toggle drawer</span>
+                                <i class="material-icons">menu</i>
+                            </button>
+                        </ul>
+                        <h4 class="headerH">Settings</h4>
+                    </div>
+                </header>
+                <div id="dw-s2" class="bmd-layout-drawer bg-faded">
+                    <header class="userHeader">
+                        <img src="./images/avatar-temp.png" class="imgthumbnail" alt="avatar">
+                        <a class="navbar-brand" id="usernameMenu"
+                           style="text-decoration: none; color: #666666">Profile</a>
+                    </header>
+                    <ul class="list-group">
+                        <a class="list-group-item" href="./home.html"><span class="material-icons">home</span>Frontpage</a>
+                        <a class="list-group-item" href="#userOverView"><span class="material-icons">list</span>Overview</a>
+                        <a class="list-group-item" href="./profile.html"><span class="material-icons">settings</span>Settings</a>
+                    </ul>
+                    <button class="logout"><a href="/logout" class="logoutText">LOGOUT</a></button>
+                </div>
+                <main class="bmd-layout-content">
+                    <div class="scrollDiv">
+                        <ul id="ulposts">
+                            <li class="postLi">
+                                <div class="container bootstrap snippet">
+                                    <div class="row">
+                                        <div class="username" style="text-align: center">
+                                            <h1 id="username"></h1>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="text-center">
+                                                <div class="preview-images">
+                                                    <img id="profileimage" src="./images/avatar-temp.png"
+                                                         class="imgcircle imgthumb"
+                                                         alt="avatar">
+                                                </div>
+                                                <h6>Upload a different photo...</h6>
+                                                <form class="mt-4"
+                                                      action="/upload"
+                                                      method="POST"
+                                                      enctype="multipart/form-data">
+                                                    <div class="form-group">
+                                                        <input
+                                                                type="file"
+                                                                name="file"
+                                                                id="input-files"
+                                                                class="form-control-file border"/>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </form>
+                                            </div>
+                                            <br>
+
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="home">
+                                                    <form class="form" action="##" method="post">
+                                                            <div class="col-xs-6">
+                                                                <label for="email"><h5>Email</h5></label>
+                                                                <input type="email" class="form-control" name="email"
+                                                                       id="email"
+                                                                       placeholder="you@email.com"
+                                                                       title="enter your email.">
+                                                            </div>
+                                                        <div class="form-group">
+
+                                                            <div class="col-xs-6">
+                                                                <label for="password"><h5>Password</h5></label>
+                                                                <input type="password" class="form-control"
+                                                                       name="password"
+                                                                       id="password"
+                                                                       placeholder="password"
+                                                                       title="enter your password.">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+
+                                                            <div class="col-xs-6">
+                                                                <label for="password2"><h5>Verify</h5></label>
+                                                                <input type="password" class="form-control"
+                                                                       name="password2"
+                                                                       id="password2"
+                                                                       placeholder="password2"
+                                                                       title="enter your password2.">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-xs-12">
+                                                                <br>
+                                                                <button class="btn btn-lg btn-success" type="submit"><i
+                                                                        class="glyphicon glyphicon-ok-sign"></i> Save
+                                                                </button>
+                                                                <button class="btn btn-lg btn-reset" type="reset"><i
+                                                                        class="glyphicon glyphicon-repeat"></i> Reset
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+        integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+        integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+        crossorigin="anonymous"></script>
+<script src="js/home.js"></script>
+<script src="js/profile.js"></script>
+<script>$(document).ready(function() {
+  $('body').bootstrapMaterialDesign();
+});
+</script>
+<script>
+  $(document).ready(function() {
+    let imagesPreview = function(input) {
+      if (input.files) {
+        let filesAmount = input.files.length;
+        for (i = 0; i < filesAmount; i++) {
+          let reader = new FileReader();
+          reader.onload = function(event) {
+            let result = (event.target.result);
+            (document).getElementById('profileimage').src = (result);
+          };
+          reader.readAsDataURL(input.files[i]);
+        }
+      }
+    };
+    $('#input-files').on('change', function() {
+      imagesPreview(this, 'div.preview-images');
+    });
+  });
+
+
+</script>
+</html>
