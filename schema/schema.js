@@ -7,14 +7,13 @@ const {
     GraphQLSchema,
     GraphQLNonNull,
     GraphQLList,
-    GraphQLInputObjectType,
 } = require('graphql');
 
 const bcrypt = require('bcrypt');
 const saltRound = 12;
 const user = require('../models/user');
-const posts = require('../models/posts');
-const _ = require('lodash')
+const post = require('../models/post');
+const _ = require('lodash');
 
 //------------------------------------------------------------------------------------------------------
 const authController = require('../controller/authController');
@@ -25,41 +24,18 @@ const userType = new GraphQLObjectType({
         id: {type: GraphQLID},
         username: {type: GraphQLString},
         token: {type: GraphQLString},
-        posts: {
-            type: new GraphQLList(postsType),
-            resolve(parent, args) {
-                return posts.find({_id: {$in: parent.posts}});
-            },
-        },
     }),
 });
 
-const postsType = new GraphQLObjectType({
-    name: 'posts',
-    fields: () => ({
-        id: {type: GraphQLID},
-        length: {type: GraphQLString},
-        chunckSize: {type: GraphQLString},
-        UploadDate: {type: GraphQLString},
-        filename: {type: GraphQLString},
-        md4: {type: GraphQLString},
-        contentType: {type: GraphQLString},
-    }),
+const postType = new GraphQLObjectType({
+   name: 'post',
+   fields: () => ({
+      id :{type: GraphQLID},
+      header: {type: GraphQLString},
+      text: {type: GraphQLString},
+   }),
 });
 
-
-const postCreation = new GraphQLInputObjectType({
-    name: 'postCreation',
-    description: 'crates posts',
-    fields: () => ({
-        length: {type: GraphQLString},
-        chunckSize: {type: GraphQLString},
-        UploadDate: {type: GraphQLString},
-        filename: {type: GraphQLString},
-        md4: {type: GraphQLString},
-        contentType: {type: GraphQLString},
-    }),
-});
 
 
 //------------------------------------------------------------------------------------------------------
@@ -79,27 +55,7 @@ const RootQuery = new GraphQLObjectType({
                 }
             },
         },
-        posts: {
-            type: postsType,
-            description: 'List of users posts',
-            args: {
-                id: {type: new GraphQLNonNull(GraphQLID)},
-                length: {type: GraphQLString},
-                chunckSize: {type: GraphQLString},
-                UploadDate: {type: GraphQLString},
-                filename: {type: GraphQLString},
-                md4: {type: GraphQLString},
-                contentType: {type: GraphQLString},
-            },
-            resolve: async (parent,  args)=> {
-                try{
-                    return await posts.findById(args.id)
-                }
-                catch (e) {
 
-                }
-            }
-        },
         login: {
             type: userType,
             description: 'Login with username and password to receive token.',
@@ -124,6 +80,13 @@ const RootQuery = new GraphQLObjectType({
             },
         },
 
+        post: {
+            type: new GraphQLList(postType),
+            description: 'get posts',
+            resolve: async (parent, args) => {
+                return post.find();
+            }
+        },
     },
 });
 //------------------------------------------------------------------------------------------------------
@@ -137,10 +100,6 @@ const Mutation = new GraphQLObjectType({
             args: {
                 username: {type: new GraphQLNonNull(GraphQLString)},
                 password: {type: new GraphQLNonNull(GraphQLString)},
-               /* posts: {
-                    type: new GraphQLNonNull(new GraphQLList(postCreation)),
-                }
-               */
             },
             resolve: async (parent, args, {req, res}) => {
                 try {
@@ -169,6 +128,25 @@ const Mutation = new GraphQLObjectType({
                     throw new Error(err);
                 }
             },
+        },
+        createPost: {
+            type: postType,
+            description: 'create post',
+            args: {
+                header: {type: new GraphQLNonNull(GraphQLString)},
+                text: {type: new GraphQLNonNull(GraphQLString)},
+            },
+            resolve: async (parent, args, {req, res}) => {
+                try {
+                    console.log('post  creation tries');
+                    const newPost = new post(args);
+                    console.log(newPost)
+                    const result = await newPost.save();
+
+                }catch (e) {
+                    throw new Error(err);
+                }
+            }
         },
     }),
 });

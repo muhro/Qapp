@@ -150,10 +150,10 @@
     let registerClose = document.getElementById('modalRegisterFormBtn');
     registerClose.addEventListener('click', ()=>{ $('#modalRegisterForm').modal('hide');})
 
-
-
-
-// check user token
+ /*
+ CHECK USER TOKEN
+ -------------------------------------------------------------
+ */
   const checkUser = async () => {
     const query = {
       query: ` {

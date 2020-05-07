@@ -27,6 +27,8 @@
 
                         </ul>
                         <h4 class="headerH">Frontpage</h4>
+
+                        <button data-toggle="modal" data-target="#modalPostForm">Create post</button>
                     </div>
                 </header>
 
@@ -148,6 +150,37 @@
     </div>
 </div>
 
+
+<div class="modal fade modalPostForm" id="modalPostForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <form  class="post-form">
+                <span class="register-form-title"> Create a post</span>
+
+                <div class="register-input ">
+                    <input class="input" type="text" name="header" placeholder="header">
+                    <span class=""></span>
+                </div>
+
+                <div class="register-input ">
+                    <input class="input text-input" type="password" name="text" placeholder="text">
+                    <span class=""></span>
+                </div>
+                <div class="container-register-form-btn">
+                    <div class="wrap-register-form-btn">
+                        <div class="register-form-bgbtn"></div>
+                        <button class="register-form-btn" id="modalRegisterFormBtn">
+                            Create
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
 
 </body>
 

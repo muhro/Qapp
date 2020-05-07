@@ -10,8 +10,6 @@ let routes = app => {
 
   router.get("/logout",authController.logout);
 
-  router.post("/upload", uploadController.uploadFile);
-
   return app.use("/", router);
 };
 
