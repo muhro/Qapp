@@ -89,6 +89,12 @@
         }
     });
 
+    let postCreationClose = document.getElementById('modalPostFormBtn');
+    postCreationClose.addEventListener('click', ()=>{
+        $('#modalPostForm').modal('hide');
+
+
+    })
 
     /*
     CHECK USER TOKEN
@@ -140,35 +146,21 @@
         console.log('posts ',result);
         console.log( result.post.length)
 
+        let posts = result.post.reverse();
 
 
-        const post = document.querySelector('#ulposts');
-        const textSite = document.querySelector('.postFlavor');
+            posts.forEach(function(value) {
+                $('#ulposts').append('<li class="postLi">\n' +
+                    '<h4 class="postHeader">' + value.header + '</h4>\n' +
+                    '<div class="paddingDiv">\n' +
+                    '<a class="postFlavor">' + value.text + '</a>\n' +
+                    '<div class="table">\n' +
+                    '</div>\n' +
+                    '</div>\n' +
+                    '</li>');
+            });
 
-
-        for(let i =0;i < result.post.length; i++){
-            let text = result.post[i].text;
-            let header = result.post[i].header;
-
-
-
-            post.innerHTML = '<li class="postLi">\n' +
-                '<h4 class="postHeader">'+ header +'</h4>\n' +
-                '<div class="paddingDiv">\n' +
-                '<a class="postFlavor">' + text +'</a>\n' +
-                '<div class="table">\n' +
-                '</div>\n' +
-                '</div>\n' +
-                '</li>'
-
-
-        };
-
-
-
-
-
-    };
+    }
 await checkPost();
 
 
