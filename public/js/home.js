@@ -138,9 +138,36 @@
       };
         const result = await fetchGraphql(query);
         console.log('posts ',result);
-        if (result.user) {
-            console.log('if check')
-        }
+        console.log( result.post.length)
+
+
+
+        const post = document.querySelector('#ulposts');
+        const textSite = document.querySelector('.postFlavor');
+
+
+        for(let i =0;i < result.post.length; i++){
+            let text = result.post[i].text;
+            let header = result.post[i].header;
+
+
+
+            post.innerHTML = '<li class="postLi">\n' +
+                '<h4 class="postHeader">'+ header +'</h4>\n' +
+                '<div class="paddingDiv">\n' +
+                '<a class="postFlavor">' + text +'</a>\n' +
+                '<div class="table">\n' +
+                '</div>\n' +
+                '</div>\n' +
+                '</li>'
+
+
+        };
+
+
+
+
+
     };
 await checkPost();
 
