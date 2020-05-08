@@ -1,4 +1,3 @@
-
 (async () => {
   'use strict';
   if ('serviceWorker' in navigator) {
@@ -9,8 +8,6 @@
       console.log(e.message);
     }
   }
-
-
 
 // general fetch from graphql API
   const apiURL = '/graphql';
@@ -28,8 +25,7 @@
       const response = await fetch(apiURL, options);
       const json = await response.json();
       return json.data;
-    }
-    catch (e) {
+    } catch (e) {
       console.log(e);
       return false;
     }
@@ -49,19 +45,19 @@
     let db = request.result;
     db.createObjectStore('users', {autoIncrement: true});
   };
+
   /*
   LOGIN
   -------------------------------------------------------------
   */
 
   function loginError() {
-    document.getElementById('Error')
-        .innerHTML = '<p class="error" id="error">LOGIN FAILED</p>'
-    setTimeout(()=>{
-       // document.getElementById('error')
-         //   .remove()
+    document.getElementById('Error').innerHTML = '<p class="error" id="error">LOGIN FAILED</p>';
+    setTimeout(() => {
+          // document.getElementById('error')
+          //   .remove()
         }
-  , 1500);
+        , 1500);
   }
 
   const loginForm = document.querySelector('.login-form');
@@ -87,15 +83,13 @@
       const result = await fetchGraphql(query);
       localStorage.setItem('token', result.login.token);
       location.href = 'home.html';
-    }
-    catch (e) {
-      console.log("err")
-     await loginError()
+    } catch (e) {
+      console.log('err');
+      await loginError();
 
     }
 
   });
-
 
   /*
   REGISTER
@@ -117,16 +111,7 @@
                  registerUser(username: "${values.username}", password: "${values.password}"){
                  id
                  username
-                 token
-                 posts{
-                    id
-                    length
-                    chunckSize
-                    UploadDate
-                    filename
-                    md4
-                    contentType
-                 }
+                 token                 
                  }
                 }
             `,
@@ -134,26 +119,24 @@
     };
 
     try {
-        console.log(mutation)
-        const result = await fetchGraphql(mutation);
+      console.log(mutation);
+      const result = await fetchGraphql(mutation);
 
-        }
-        catch (e) {
-            console.log('error', e.message);
-        }
-
-
-
+    } catch (e) {
+      console.log('error', e.message);
+    }
 
   });
 
-    let registerClose = document.getElementById('modalRegisterFormBtn');
-    registerClose.addEventListener('click', ()=>{ $('#modalRegisterForm').modal('hide');})
+  let registerClose = document.getElementById('modalRegisterFormBtn');
+  registerClose.addEventListener('click', () => {
+    $('#modalRegisterForm').modal('hide');
+  });
 
- /*
- CHECK USER TOKEN
- -------------------------------------------------------------
- */
+  /*
+  CHECK USER TOKEN
+  -------------------------------------------------------------
+  */
   const checkUser = async () => {
     const query = {
       query: ` {
@@ -169,10 +152,11 @@
     const result = await fetchGraphql(query);
     console.log(result);
     if (result.user) {
-      console.log('if check')
+      console.log('if check');
     }
-  }
+  };
 
 })();
+
 
 

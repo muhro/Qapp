@@ -14,8 +14,8 @@ const https = require('https').createServer(server);
 
 
 server.use(cors());
-server.use(express.json()); // for parsing application/json
 server.use(express.urlencoded({extended: true})); // for parsing application/x-www-form-urlencoded
+server.use(express.json()); // for parsing application/json
 
 
 server.use(express.static('public'));
@@ -26,12 +26,14 @@ server.use('.modules', express.static('node_modules'));
 server.use('/graphql', (req, res) => {
     graphQlHttp({schema,
         graphql: true,
+        graphiql: true,
         context: {req, res}})
         (req, res);
 });
 
-server.post("/", authController.login, authController.checkAuth);
-server.get("/logout",authController.logout);
+
+server.post("/", authController.login);
+server.get("/logout", authController.logout);
 
 db.on('connected', () => {
     console.log('db connected');

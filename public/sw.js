@@ -3,8 +3,13 @@ let cacheName = 'pwa';
 let filesToCache = [
   './',
   './css/main.css',
+  './css/profile.css',
   './index.html',
+  './home.html',
+  './profile.html',
   './js/main.js',
+  './js/home.js',
+  './js/profile.js',
   './favicon.ico',
 ];
 
