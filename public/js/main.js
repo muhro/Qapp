@@ -111,16 +111,7 @@
                  registerUser(username: "${values.username}", password: "${values.password}"){
                  id
                  username
-                 token
-                 posts{
-                    id
-                    length
-                    chunckSize
-                    UploadDate
-                    filename
-                    md4
-                    contentType
-                 }
+                 token                 
                  }
                 }
             `,
