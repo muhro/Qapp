@@ -1,11 +1,17 @@
-Server-side-scripting\week2
-
 I pulled Joonas branch so the documentation will be somewhat the same but I will edit stuff that I did
 
 readme
 ----------------------------------------------------------------
 # Important stuff
 ### App developed for mobile using chrome's device toolbar
+### What is working:
+
+- HTTPS and PWA
+- User register
+- User login
+- User logout
+- Username fetch to settings
+- Text post to site
 
 ### .env file
 DB_URL=mongodb://Test1:Test123@localhost:27017/qapp  
