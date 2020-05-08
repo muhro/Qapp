@@ -66,7 +66,7 @@
     evt.preventDefault();
     let values = {};
     for (let i = 0; i < loginForm.elements.length; i++) {
-      if (loginForm.elements[i].tagName === 'INPUT')
+      if (loginForm.elements[i].tagName === 'TEXTAREA')
         values[loginForm.elements[i].name] = loginForm.elements[i].value;
     }
     const query = {
