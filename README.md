@@ -89,3 +89,4 @@ RewriteRule ^ %{REQUEST_URI}.html [NC,L]
 
 ### 8.5
 - fixed last small mutation problem
+- fixed problem with post creation
