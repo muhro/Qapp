@@ -86,3 +86,6 @@ RewriteRule ^ %{REQUEST_URI}.html [NC,L]
 - got the post query to work
 - had an presentation
 - really happy that I managed to do stuff without tutorials
+
+### 8.5
+- fixed last small mutation problem
