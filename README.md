@@ -1,6 +1,4 @@
-readme
-----------------------------------------------------------------
-# Important stuff
+# Important stuff:
 ### App developed for mobile using chrome's device toolbar
 ### What is working:
 
