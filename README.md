@@ -5,6 +5,8 @@ I pulled Joonas branch so the documentation will be somewhat the same but I will
 readme
 ----------------------------------------------------------------
 # Important stuff
+### App developed for mobile using chrome's device toolbar
+
 ### .env file
 DB_URL=mongodb://Test1:Test123@localhost:27017/qapp  
 your_jwt_token=Projekti
@@ -17,14 +19,7 @@ RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
 RewriteRule ^ /%1 [NC,L,R]
 
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^ %{REQUEST_URI}.html [NC,L]
-
-### PWA implemented
-
-- known bugs
- - not working lmao
-
+### HTTPS & PWA implemented
 
 ### Lauri documentation and stuff are in branch Lauri
 
