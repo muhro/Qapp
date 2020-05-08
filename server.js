@@ -10,7 +10,7 @@ const passport = require('./utils/pass');
 const db = require('./database/db');
 const authController = require("./controller/authController");
 const server = express();
-const https = require('https').createServer(server);
+
 
 
 server.use(cors());

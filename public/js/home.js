@@ -59,8 +59,9 @@
     evt.preventDefault();
     let values = {};
     for (let i = 0; i < postForm.elements.length; i++) {
-      if (postForm.elements[i].tagName === 'INPUT')
+      if (postForm.elements[i].tagName === 'TEXTAREA')
         values[postForm.elements[i].name] = postForm.elements[i].value;
+      console.log('sdd',values)
     }
     const mutation = {
       query: `mutation {
@@ -77,6 +78,7 @@
     try {
       console.log(mutation);
       const result = await fetchGraphql(mutation);
+      console.log(result)
     } catch (e) {
       console.log('error', e.message);
     }
